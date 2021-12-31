@@ -76,9 +76,13 @@ function App() {
       const data = await getDocs(userCollectionRef)
       console.log(data.docs)
       console.log(data.docs[0]._document.data.value.mapValue.fields.xcoordhigh)
+      console.log(data.docs[1]._document.data.value.mapValue.fields.xcoordhigh)
+      console.log(data.docs[2]._document.data.value.mapValue.fields.xcoordhigh)
+
       setOdlawPosition(data.docs[0]._document.data.value.mapValue.fields.xcoordhigh)
       setWaldoPosition(data.docs[1]._document.data.value.mapValue.fields.xcoordhigh)
       setWizardPosition((data.docs[2]._document.data.value.mapValue.fields.xcoordhigh))
+      // Set positions from firebase db
       
       // db.collection("solutions").doc("waldo").get().then((querySnapshot) => {
       //   setWaldoPosition(querySnapshot.data().xcoordhigh)
