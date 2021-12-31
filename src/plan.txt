@@ -1,0 +1,18 @@
+1. create frontend with blank page, allows user to click which will open tagging bar and box outline
+2. add wally image, when user clicks coordinates will need to be passed in, check locally if the coordinates are within the image and correct
+if character is at coords, map over characters in navbar check which characters are found: true and hide ones which are found
+
+
+3. add backend coordinates, layout of db will be something like:
+ {items:
+    {name: wally
+    clicked: no/yes
+    coordinates: 123x, 345y
+    }
+    {name: magician
+    clicked: no/yes
+    coordinates: 123x, 345y
+    }
+ 
+ }
+4. when user clicks and selects a character check with backend whether the coordinates match
