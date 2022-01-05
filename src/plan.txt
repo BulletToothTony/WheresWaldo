@@ -16,3 +16,15 @@ if character is at coords, map over characters in navbar check which characters 
  
  }
 4. when user clicks and selects a character check with backend whether the coordinates match
+5. Now that have backend checking where if users clicks, I need to set the db so it registers where the character is found as true / false.
+e.g. name: wally,
+     found: false,
+
+when user clicks wally, will change to:
+      name: wally,
+      found: true,
+
+When found is set to true will also update some of the classes locally, not sure if I need to do all of the above steps for 5.
+
+6. Add timer which when all characters are found adds a user to the DB with their time and name.
+7. Add reset button.
