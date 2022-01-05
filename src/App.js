@@ -19,7 +19,10 @@ function App() {
   const [odlawPosition, setOdlawPosition] = useState()
   const [wizardPosition, setWizardPosition] = useState()
 
-
+  useEffect(() => {
+    console.log('all characters found')
+    // set timer here, the post to db
+  }, [wallyFound, odlawFound, wizardFound])
 
   const divClickHandler = (e) => {
     console.log("clicked div");
