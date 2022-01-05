@@ -75,13 +75,13 @@ function App() {
     const getUsers = async () => {
       const data = await getDocs(userCollectionRef)
       console.log(data.docs)
-      console.log(data.docs[0]._document.data.value.mapValue.fields.xcoordhigh)
-      console.log(data.docs[1]._document.data.value.mapValue.fields.xcoordhigh)
-      console.log(data.docs[2]._document.data.value.mapValue.fields.xcoordhigh)
+      console.log(data.docs[0]._document.data.value.mapValue.fields)
+      console.log(data.docs[1]._document.data.value.mapValue.fields)
+      console.log(data.docs[2]._document.data.value.mapValue.fields)
 
-      setOdlawPosition(data.docs[0]._document.data.value.mapValue.fields.xcoordhigh)
-      setWaldoPosition(data.docs[1]._document.data.value.mapValue.fields.xcoordhigh)
-      setWizardPosition((data.docs[2]._document.data.value.mapValue.fields.xcoordhigh))
+      setOdlawPosition(data.docs[0]._document.data.value.mapValue.fields)
+      setWaldoPosition(data.docs[1]._document.data.value.mapValue.fields)
+      setWizardPosition((data.docs[2]._document.data.value.mapValue.fields))
       // Set positions from firebase db
       
       // db.collection("solutions").doc("waldo").get().then((querySnapshot) => {
@@ -119,10 +119,9 @@ function App() {
   const checkIfWon = () => {
     if (
       character === "Waldo" &&
-      xCoord >= 514 &&
-      xCoord <= 570 &&
-      yCoord >= 340 &&
-      yCoord <= 415
+      xCoord >= waldoPosition.xcoordlow.integerValue && xCoord <= waldoPosition.xcoordhigh.integerValue &&
+      yCoord >= waldoPosition.ycoordlow.integerValue && yCoord <= waldoPosition.ycoordhigh.integerValue
+
     ) {
       console.log("wally clicked");
       setWallyFound(true)
@@ -131,10 +130,8 @@ function App() {
 
     if (
       character === "Odlaw" &&
-      xCoord >= 234 &&
-      xCoord <= 267 &&
-      yCoord >= 356 &&
-      yCoord <= 435
+      xCoord >= odlawPosition.xcoordlow.integerValue && xCoord <= odlawPosition.xcoordhigh.integerValue &&
+      yCoord >= odlawPosition.ycoordlow.integerValue && yCoord <= odlawPosition.ycoordhigh.integerValue
     ) {
       console.log("odlaw clicked");
       setOdlawFound(true);
@@ -143,10 +140,8 @@ function App() {
 
     if (
       character === "Wizard" &&
-      xCoord >= 620 &&
-      xCoord <= 662 &&
-      yCoord >= 352 &&
-      yCoord <= 428
+      xCoord >= wizardPosition.xcoordlow.integerValue && xCoord <= wizardPosition.xcoordhigh.integerValue &&
+      yCoord >= wizardPosition.ycoordlow.integerValue && yCoord <= wizardPosition.ycoordhigh.integerValue
     ) {
       console.log("Wizard clicked");
       setWizardFound(true);
