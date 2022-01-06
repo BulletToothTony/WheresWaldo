@@ -54,11 +54,15 @@ function App() {
       // post to db
       // db.collection("highscores").add({name: 'james', score: seconds})
 
+      const date = Math.floor(Date.now() / 1000)
+
       const setDBName = async () => {
-        await setDoc(doc(db, "highscores", "name"), {name: nameprompt})
+        // await setDoc(doc(db, "highscores", "name"), {name: nameprompt})
+        await setDoc(doc(db, "highscores", nameprompt + date), {highscore: seconds})
+
 
       }
-
+      // might need to name doc to the name of the user, then in there add a field for time
       setDBName()
       // addData()
       setAllfound(true)
