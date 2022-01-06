@@ -33,10 +33,13 @@ function App() {
   useEffect(() => {
     // set timer here, the post to db
     // set all chars found to true
-    if (wallyFound && odlawFound && wizardFound) {
+    // if (wallyFound && odlawFound && wizardFound) {
+      if (wallyFound) {
+
       console.log('all characters found ' + seconds)
       alert('you found all characters in ' + seconds + ' seconds')
       // post to db
+      db.collection("highscores").add({name: 'henry', score: seconds})
       setAllfound(true)
       resetGame()
     }
