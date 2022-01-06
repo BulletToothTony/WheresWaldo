@@ -5,7 +5,7 @@ import level1 from "./imgs/level-1.jpg";
 import firebase from './utils/firebase';
 import "firebase/firestore";
 import db from './utils/firebase';
-import {collection, getDocs, query, where} from 'firebase/firestore'
+import {collection, getDocs, query, where, setDoc, doc} from 'firebase/firestore'
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -30,6 +30,18 @@ function App() {
    return () => clearInterval(interval)
   }, [seconds])
 
+  const addData = async() => {
+    await setDoc(doc(db, "highscores", "name"), {
+      name: "Los Angeles",
+      state: "CA",
+      country: "USA"
+    });
+
+    // const res = await db.collection('highscores').doc('name').set(data);
+
+
+  }
+
   useEffect(() => {
     // set timer here, the post to db
     // set all chars found to true
@@ -38,8 +50,17 @@ function App() {
 
       console.log('all characters found ' + seconds)
       alert('you found all characters in ' + seconds + ' seconds')
+      const nameprompt = prompt('Add name: ')
       // post to db
-      db.collection("highscores").add({name: 'henry', score: seconds})
+      // db.collection("highscores").add({name: 'james', score: seconds})
+
+      const setDBName = async () => {
+        await setDoc(doc(db, "highscores", "name"), {name: nameprompt})
+
+      }
+
+      setDBName()
+      // addData()
       setAllfound(true)
       resetGame()
     }
