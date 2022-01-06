@@ -18,11 +18,41 @@ function App() {
   const [waldoPosition, setWaldoPosition] = useState()
   const [odlawPosition, setOdlawPosition] = useState()
   const [wizardPosition, setWizardPosition] = useState()
+  const [seconds, setSeconds] = useState(0);
+  const [allFound, setAllfound] = useState(false)
 
   useEffect(() => {
-    console.log('all characters found')
+   let interval = null;
+   interval = setInterval(() => {
+     setSeconds(seconds => seconds + 1)
+   }, 1000);
+
+   return () => clearInterval(interval)
+  }, [seconds])
+
+  useEffect(() => {
     // set timer here, the post to db
-  }, [wallyFound, odlawFound, wizardFound])
+    // set all chars found to true
+    if (wallyFound && odlawFound && wizardFound) {
+      console.log('all characters found ' + seconds)
+      alert('you found all characters in ' + seconds + ' seconds')
+      // post to db
+      setAllfound(true)
+      resetGame()
+    }
+
+    // setAllfound(true);
+  }, [wallyFound, odlawFound, wizardFound, seconds])
+
+  const resetGame = () => {
+    setCharacter("")
+    setWallyFound(false)
+    setWizardFound(false)
+    setOdlawFound(false)
+    setSeconds(0)
+    // set classes back
+
+  }
 
   const divClickHandler = (e) => {
     console.log("clicked div");
@@ -151,6 +181,7 @@ function App() {
       setShowMenu(false);
     }
   };
+
 
   return (
     <div className="App">
