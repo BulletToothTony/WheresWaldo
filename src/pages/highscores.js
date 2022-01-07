@@ -13,6 +13,7 @@ import {
 const Highscores = () => {
   const [docs, setDocs] = useState([]);
   const [scoresDoc, setScoresDoc] = useState([])
+  const [allDocs, setAllDocs] = useState([])
 
   const docRef = doc(db, "highscores", "HenryTestName");
   const docsnap = async () => {
@@ -28,11 +29,16 @@ const Highscores = () => {
     //   setDocs({id: doc.id, score:doc.highscore})
     setDocs(prevstate => [...prevstate, doc.id])
     setScoresDoc(prevState => [...prevState, x.highscore])
+    setAllDocs([{
+        name: doc.id,
+        score: x.highscore
+    }])
     });
   };
 
   useEffect(() => {
     querydb();
+    console.log(allDocs)
   }, []);
 
   //   docsnap();
@@ -43,7 +49,12 @@ const Highscores = () => {
   {/* <h2>name: {docs.id} score: {docs.score}</h2> */}
   <h2>{docs}</h2>
   <h2>{scoresDoc}</h2>
-
+  <h4>{allDocs.name}, {allDocs.score}</h4>
+    {allDocs.map((item) => {
+        return (
+        <h2>{item.name}</h2>
+        )
+    })}
     </div>
   );
 };

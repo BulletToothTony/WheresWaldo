@@ -28,3 +28,5 @@ When found is set to true will also update some of the classes locally, not sure
 
 6. Add timer which when all characters are found adds a user to the DB with their time and name.
 7. Add reset button.
+
+Need to fix how data is saved to object in highscores
