@@ -25,22 +25,26 @@ const Highscores = () => {
   const querydb = async () => {
     const query = await getDocs(collection(db, "highscores"));
     console.log(query.docs)
-    for (let i = 0; i < query.docs.length; i++) {
-      console.log(query.docs[i].id)
-      setTestDoc(oldArr => [...oldArr, query.docs[i].id])
-      console.log(testDoc)
-    }
-    // query.forEach((doc) => {
-    //   console.log(doc.id, " => ", doc.data());
-    //   let x = doc.data()
-    //   setDocs({id: doc.id, score:doc.highscore})
+    // for (let i = 0; i < query.docs.length; i++) {
+    //   console.log(query.docs[i].id)
+    //   // setTestDoc(oldArr => [...oldArr, query.docs[i].id])
+    //   // setTestDoc(oldArr => [...oldArr, query.docs[i]._document.data.value.mapValue.fields.highscore.integerValue])
+    //   setTestDoc(oldArr => [...oldArr, {name: query.docs[i].id, highscore: query.docs[i]._document.data.value.mapValue.fields.highscore.integerValue}])
+
+    //   console.log(testDoc)
+    // }
+    query.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      let x = doc.data()
+      // setDocs({id: doc.id, score:doc.highscore})
     // setDocs(prevstate => [...prevstate, doc.id])
     // setScoresDoc(prevState => [...prevState, x.highscore])
     // setAllDocs([{
     //     name: doc.id,
     //     score: x.highscore
     // }])
-    // });
+    setAllDocs(oldArr => [...oldArr, {name: doc.id, score: x.highscore}])
+    });
 
   };
 
@@ -57,18 +61,24 @@ const Highscores = () => {
   {/* <h2>name: {docs.id} score: {docs.score}</h2> */}
   <h2>{docs}</h2>
   <h2>scores doc: {scoresDoc}</h2>
-  <h4>{allDocs.name}, {allDocs.score}</h4>
+  {/* <h4>{allDocs.name}, {allDocs.score}</h4> */}
     {allDocs.map((item) => {
         return (
         <h2>{item.name} {item.score}</h2>
         )
     })}
     <h1> test doc map</h1>
+    <div  className="testDocMap">
     {testDoc.map((item) => {
       return (
-      <h2>{item}</h2>
+        <div>
+      {/* <h2>{item.name.slice(0, -5)}</h2> */}
+      <h2>{item.name}</h2>
+      <h2>{item.highscore}</h2>
+        </div>
       )
     })}
+    </div>
     </div>
   );
 };

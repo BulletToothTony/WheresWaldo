@@ -86,3 +86,12 @@ header {
 .navbar h2 {
   padding: 0.25rem;
 }
+
+.testDocMap {
+  display: flex;
+  flex-direction: row;
+}
+
+.testDocMap div {
+  padding-right: 25px;
+}
