@@ -14,6 +14,7 @@ const Highscores = () => {
   const [docs, setDocs] = useState([]);
   const [scoresDoc, setScoresDoc] = useState([])
   const [allDocs, setAllDocs] = useState([])
+  const [testDoc, setTestDoc] = useState([])
 
   const docRef = doc(db, "highscores", "HenryTestName");
   const docsnap = async () => {
@@ -23,17 +24,24 @@ const Highscores = () => {
 
   const querydb = async () => {
     const query = await getDocs(collection(db, "highscores"));
-    query.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-      let x = doc.data()
+    console.log(query.docs)
+    for (let i = 0; i < query.docs.length; i++) {
+      console.log(query.docs[i].id)
+      setTestDoc(oldArr => [...oldArr, query.docs[i].id])
+      console.log(testDoc)
+    }
+    // query.forEach((doc) => {
+    //   console.log(doc.id, " => ", doc.data());
+    //   let x = doc.data()
     //   setDocs({id: doc.id, score:doc.highscore})
-    setDocs(prevstate => [...prevstate, doc.id])
-    setScoresDoc(prevState => [...prevState, x.highscore])
-    setAllDocs([{
-        name: doc.id,
-        score: x.highscore
-    }])
-    });
+    // setDocs(prevstate => [...prevstate, doc.id])
+    // setScoresDoc(prevState => [...prevState, x.highscore])
+    // setAllDocs([{
+    //     name: doc.id,
+    //     score: x.highscore
+    // }])
+    // });
+
   };
 
   useEffect(() => {
@@ -54,6 +62,12 @@ const Highscores = () => {
         return (
         <h2>{item.name} {item.score}</h2>
         )
+    })}
+    <h1> test doc map</h1>
+    {testDoc.map((item) => {
+      return (
+      <h2>{item}</h2>
+      )
     })}
     </div>
   );
