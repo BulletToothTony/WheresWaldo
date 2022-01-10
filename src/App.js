@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HighScoresPage from './pages/highscores';
 import Home from './pages/home';
 // import nav bar
+import Navbar from './components/Navbar';
 
 function App() {
   // const [showMenu, setShowMenu] = useState(false);
@@ -219,6 +220,7 @@ function App() {
 
   return (
     <Router>
+      <Navbar/>
       <Routes>
         {/* <Route exact path ="/"> */}
           {/* <home> */}

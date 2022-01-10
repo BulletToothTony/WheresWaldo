@@ -48,11 +48,11 @@ const Highscores = () => {
       <h2>scores here: </h2>
   {/* <h2>name: {docs.id} score: {docs.score}</h2> */}
   <h2>{docs}</h2>
-  <h2>{scoresDoc}</h2>
+  <h2>scores doc: {scoresDoc}</h2>
   <h4>{allDocs.name}, {allDocs.score}</h4>
     {allDocs.map((item) => {
         return (
-        <h2>{item.name}</h2>
+        <h2>{item.name} {item.score}</h2>
         )
     })}
     </div>
