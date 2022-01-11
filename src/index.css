@@ -13,13 +13,18 @@ code {
 }
 
 .divGrey {
-  height: 90vh;
-  width: 90vw;
+  /* height: 90vh;
+  width: 90vw; */
   /* background-image: url(./imgs/level-1.jpg); */
   /* background-position: center; Center the image */
   /* background-repeat: no-repeat; Do not repeat the image */
   /* background-size: cover; Resize the background image to cover the entire container */
   /* background-color: royalblue; */
+}
+
+.level1img {
+  height: 95%;
+  width: 95%;
 }
 
 .showmenu {
@@ -61,6 +66,11 @@ header {
 
 .wallyfound {
   text-decoration: line-through;
+  opacity: 50%;
+}
+
+.wallyfound img {
+  
 }
 
 .odlaw {
@@ -79,12 +89,32 @@ header {
   text-decoration: line-through;
 }
 
+nav {
+  width: 100%;
+}
+
 .navbar {
   display: flex;
+  /* width: 100%; */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 5px #e2e2e2;
 }
 
 .navbar h2 {
   padding: 0.25rem;
+}
+
+.WhereSpan {
+  color: #3b82f6;
+}
+
+.WallySpan {
+  color: red;
+}
+
+.Waldoimg {
+  height: 75px;
 }
 
 .testDocMap {
@@ -94,4 +124,21 @@ header {
 
 .testDocMap div {
   padding-right: 25px;
+}
+
+.divGrey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-header {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  /* align-items: center; */
+}
+
+.App-header img {
+  height: 25px;
 }

@@ -7,6 +7,10 @@ import "firebase/firestore";
 import db from '../utils/firebase';
 import {collection, getDocs, query, where, setDoc, doc} from 'firebase/firestore'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import WaldoHead from '../imgs/waldohead.jpg';
+import OdlawHead from '../imgs/odlawhead.jpg';
+import WizardHead from '../imgs/wizardhead.jpeg';
+
 
 const Home = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -215,14 +219,14 @@ const Home = () => {
     return (
           <div className="App">
           <header className="App-header">
-            <h1>Where's Wally?</h1>
-            <h2 className={`${wallyFound ? "wally wallyfound" : "wally"}`}>Wally</h2>
-            <h2 className={`${odlawFound ? "odlaw odlawfound" : "odlaw"}`}>Odlaw</h2>
-            <h2 className={`${wizardFound ? "wizard wizardfound" : "wizard"}`}>Wizard</h2>
+            <h2 className={`${wallyFound ? "wally wallyfound" : "wally"}`}>Wally</h2><img src={WaldoHead} className={`${wallyFound ? "wally wallyfound" : "wally"}`}></img>
+            <h2 className={`${odlawFound ? "odlaw odlawfound" : "odlaw"}`}>Odlaw</h2><img src={OdlawHead}></img>
+            <h2 className={`${wizardFound ? "wizard wizardfound" : "wizard"}`}>Wizard</h2><img src={WizardHead}></img>
           </header>
     
           <div className="divGrey">
             <img
+              className="level1img"
               src={level1}
               id="picture"
               alt="where's waldo?"
