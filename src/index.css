@@ -69,8 +69,16 @@ header {
   opacity: 50%;
 }
 
-.wallyfound img {
-  
+.wallyImgFound {
+  opacity: 50%;
+}
+
+.odlawImgFound {
+  opacity: 50%;
+}
+
+.wizardImgFound {
+  opacity: 50%;
 }
 
 .odlaw {

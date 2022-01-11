@@ -25,6 +25,10 @@ const Home = () => {
     const [wizardPosition, setWizardPosition] = useState()
     const [seconds, setSeconds] = useState(0);
     const [allFound, setAllfound] = useState(false)
+    const [wallyFoundImg, setwallyFoundImg] = useState(false)
+    const [odlawFoundImg, setOdlawFoundImg] = useState(false)
+    const [wizardFoundImg, setWizardFoundImg] = useState(false)
+
   
     useEffect(() => {
      let interval = null;
@@ -99,7 +103,7 @@ const Home = () => {
       // console.log(window.screen.height / e.nativeEvent.offsetY)
       // console.log(window.screen.width  / e.nativeEvent.offsetX)
       const elementPosition = document
-        .getElementById("picture")
+        .getElementById("picture1")
         .getBoundingClientRect();
         console.log(e.clientX - elementPosition.x + ' x')
         console.log(e.clientY - elementPosition.y + ' y')
@@ -191,6 +195,7 @@ const Home = () => {
       ) {
         console.log("wally clicked");
         setWallyFound(true)
+        setwallyFoundImg(true);
         setShowMenu(false);
       }
   
@@ -201,6 +206,7 @@ const Home = () => {
       ) {
         console.log("odlaw clicked");
         setOdlawFound(true);
+        setOdlawFoundImg(true);
         setShowMenu(false);
       }
   
@@ -211,6 +217,7 @@ const Home = () => {
       ) {
         console.log("Wizard clicked");
         setWizardFound(true);
+        setWizardFoundImg(true);
         setShowMenu(false);
       }
     };
@@ -219,12 +226,12 @@ const Home = () => {
     return (
           <div className="App">
           <header className="App-header">
-            <h2 className={`${wallyFound ? "wally wallyfound" : "wally"}`}>Wally</h2><img src={WaldoHead} className={`${wallyFound ? "wally wallyfound" : "wally"}`}></img>
-            <h2 className={`${odlawFound ? "odlaw odlawfound" : "odlaw"}`}>Odlaw</h2><img src={OdlawHead}></img>
-            <h2 className={`${wizardFound ? "wizard wizardfound" : "wizard"}`}>Wizard</h2><img src={WizardHead}></img>
+            <h2 className={`${wallyFound ? "wally wallyfound" : "wally"}`}>Wally</h2><img src={WaldoHead} className={`${wallyFoundImg ? "wallyImgFound   " : "wallyImg"}`} alt="wallyHead"></img>
+            <h2 className={`${odlawFound ? "odlaw odlawfound" : "odlaw"}`}>Odlaw</h2><img src={OdlawHead} className={`${odlawFoundImg ? "odlawImgFound   " : "wallyImg"}`} alt="odlawHead"></img>
+            <h2 className={`${wizardFound ? "wizard wizardfound" : "wizard"}`}>Wizard</h2><img src={WizardHead} className={`${wizardFoundImg ? "wizardImgFound   " : "wallyImg"}`} alt="wizardHead"></img>
           </header>
     
-          <div className="divGrey">
+          <div className="divGrey" id="picture1">
             <img
               className="level1img"
               src={level1}
