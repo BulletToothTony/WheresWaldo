@@ -103,10 +103,10 @@ const Home = () => {
       // console.log(window.screen.height / e.nativeEvent.offsetY)
       // console.log(window.screen.width  / e.nativeEvent.offsetX)
       const elementPosition = document
-        .getElementById("picture")
+        .getElementById("picture1")
         .getBoundingClientRect();
-        console.log(e.clientX / elementPosition.x + ' x')
-        console.log(e.clientY / elementPosition.y + ' y')
+        console.log(e.clientX - elementPosition.x + ' x')
+        console.log(e.clientY - elementPosition.y + ' y')
         setXCoord(e.clientX - elementPosition.x)
         setYCoord(e.clientY - elementPosition.y)
   
