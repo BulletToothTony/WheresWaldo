@@ -109,6 +109,7 @@ const Home = () => {
         console.log(e.clientY - elementPosition.y + ' y')
         setXCoord(e.clientX - elementPosition.x)
         setYCoord(e.clientY - elementPosition.y)
+        // get screen width for x coord and y coord
   
   
       setShowMenu(true);
@@ -134,6 +135,9 @@ const Home = () => {
       const submenu = container.current;
       submenu.style.left = `${xCoord}px`;
       submenu.style.top = `${yCoord}px`;
+      // submenu.style.top += 90
+      // submenu.style.left += 200
+
   
       console.log(submenu);
     }, [xCoord]);
