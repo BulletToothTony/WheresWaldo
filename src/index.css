@@ -52,7 +52,7 @@ li {
 }
 
 .characterDiv {
-  background-color: royalblue;
+  background-color: rgb(255, 255, 255);
   padding: 10px;
   width: 75px;
 }
@@ -70,16 +70,31 @@ header {
   opacity: 50%;
 }
 
+.wallyImg {
+  height: 25px;
+}
+
+.odlawImg {
+  height: 25px;
+}
+
+.wizardImg {
+  height: 25px;
+}
+
 .wallyImgFound {
   opacity: 50%;
+  height: 25px;
 }
 
 .odlawImgFound {
   opacity: 50%;
+  height: 25px;
 }
 
 .wizardImgFound {
   opacity: 50%;
+  height: 25px;
 }
 
 .odlaw {
@@ -88,6 +103,7 @@ header {
 
 .odlawfound {
   text-decoration: line-through;
+  opacity: 50%;
 }
 
 .wizard {
@@ -96,6 +112,7 @@ header {
 
 .wizardfound {
   text-decoration: line-through;
+  opacity: 50%;
 }
 
 nav {
@@ -139,7 +156,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center; */
-  /* height: 90vh;
+/* height: 90vh;
   width: 90vw; */
 /* } */
 

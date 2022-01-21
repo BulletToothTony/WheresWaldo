@@ -55,7 +55,7 @@ const Home = () => {
       // set timer here, the post to db
       // set all chars found to true
       // if (wallyFound && odlawFound && wizardFound) {
-        if (wallyFound) {
+        if (wallyFound && odlawFound && wizardFound) {
   
         console.log('all characters found ' + seconds)
         alert('you found all characters in ' + seconds + ' seconds')
@@ -133,6 +133,11 @@ const Home = () => {
   
     useEffect(() => {
       const submenu = container.current;
+      // submenu.style.left = `50px`;
+
+      let width = window.screen.width;
+
+      // submenu.style.left = 50 + 400 + 'px'
       submenu.style.left = `${xCoord}px`;
       submenu.style.top = `${yCoord}px`;
       // submenu.style.top += 90
@@ -140,7 +145,7 @@ const Home = () => {
 
   
       console.log(submenu);
-    }, [xCoord]);
+    }, [xCoord, yCoord]);
   
   
     // Set positions from DB for Waldo, Odlaw, Wizard
@@ -230,9 +235,9 @@ const Home = () => {
     return (
           <div className="App">
           <header className="App-header">
-            <h2 className={`${wallyFound ? "wally wallyfound" : "wally"}`}>Wally</h2><img src={WaldoHead} className={`${wallyFoundImg ? "wallyImgFound   " : "wallyImg"}`} alt="wallyHead"></img>
-            <h2 className={`${odlawFound ? "odlaw odlawfound" : "odlaw"}`}>Odlaw</h2><img src={OdlawHead} className={`${odlawFoundImg ? "odlawImgFound   " : "wallyImg"}`} alt="odlawHead"></img>
-            <h2 className={`${wizardFound ? "wizard wizardfound" : "wizard"}`}>Wizard</h2><img src={WizardHead} className={`${wizardFoundImg ? "wizardImgFound   " : "wallyImg"}`} alt="wizardHead"></img>
+            <h2 className={`${wallyFound ? "wally wallyfound" : "wally"}`}>Wally</h2><img src={WaldoHead} className={`${wallyFoundImg ? "wallyImgFound" : "wallyImg"}`} alt="wallyHead"></img>
+            <h2 className={`${odlawFound ? "odlaw odlawfound" : "odlaw"}`}>Odlaw</h2><img src={OdlawHead} className={`${odlawFoundImg ? "odlawImgFound" : "odlawImg"}`} alt="odlawHead"></img>
+            <h2 className={`${wizardFound ? "wizard wizardfound" : "wizard"}`}>Wizard</h2><img src={WizardHead} className={`${wizardFoundImg ? "wizardImgFound" : "wizardImg"}`} alt="wizardHead"></img>
           </header>
     
           <div className="divGrey" id="picture1">
@@ -251,19 +256,22 @@ const Home = () => {
                 onClick={() => characterSelectionHandler("Waldo")}
                 className="characterDiv"
               >
+                <img src={WaldoHead} className={`${wallyFoundImg ? "wallyImgFound   " : "wallyImg"}`} alt="wallyHead"></img>
                 Waldo
               </div>
               <div
                 onClick={() => characterSelectionHandler("Odlaw")}
                 className="characterDiv"
               >
+                <img src={OdlawHead} className={`${odlawFoundImg ? "odlawImgFound" : "odlawImg"}`} alt="odlawHead"></img>
                 Odlaw
               </div>
               <div
                 onClick={() => characterSelectionHandler("Wizard")}
                 className="characterDiv"
               >
-                Wizard
+                <img src={WizardHead} className={`${wizardFoundImg ? "wizardImgFound" : "wizardImg"}`} alt="wizardHead"></img>
+                Wizard 
               </div>
             </div>
             <div className="targetBox"></div>
