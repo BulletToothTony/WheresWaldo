@@ -30,7 +30,7 @@ const Highscores = () => {
       // setTestDoc(oldArr => [...oldArr, query.docs[i].id])
       // setTestDoc(oldArr => [...oldArr, query.docs[i]._document.data.value.mapValue.fields.highscore.integerValue])
       setTestDoc(oldArr => [...oldArr, {name: query.docs[i].id, highscore: query.docs[i]._document.data.value.mapValue.fields.highscore.integerValue}])
-      // console.log(testDoc)
+      console.log(testDoc)
     }
     // query.forEach((doc) => {
     //   console.log(doc.id, " => ", doc.data());
@@ -73,8 +73,8 @@ const Highscores = () => {
     {testDoc.map((item, index) => {
       return (
         <div key={index} className="highscoreDiv">
-      {/* <h2>{item.name.slice(0, -5)}</h2> */}
-      <h2>{item.name}</h2>
+      <h2>{item.name.slice(0, -10)}</h2>
+      {/* <h2>{item.name}</h2> */}
       <h2>{item.highscore}</h2>
         </div>
       )
